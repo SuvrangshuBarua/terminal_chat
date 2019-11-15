@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "60359068970",
+    "firebase_url": "https://terminal-chat-81904.firebaseio.com",
+    "project_id": "terminal-chat-81904",
+    "storage_bucket": "terminal-chat-81904.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60359068970:android:2753b4f5b41668ebf3e253",
+        "android_client_info": {
+          "package_name": "com.example.terminal_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60359068970-uddsodoivhc1bbpi7sg9ki2san44i652.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9L_d9yrGTTR5mdA5gMypP7Wju266PNqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60359068970-uddsodoivhc1bbpi7sg9ki2san44i652.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
