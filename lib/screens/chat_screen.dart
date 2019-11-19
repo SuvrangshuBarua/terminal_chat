@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:terminal_chat/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,7 +39,10 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void messageStreams() async {
-    await for (var snapshot in _firestore.collection('messages').snapshots()) {
+    await for (var snapshot in _firestore
+        .collection('messages')
+        .orderBy("time", descending: false)
+        .snapshots()) {
       for (var message in snapshot.documents) {
         print(message.data);
       }
@@ -90,6 +94,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       _firestore.collection('messages').add({
                         'text': messageText,
                         'sender': loggedInUser.email,
+                        'time': Timestamp.fromMicrosecondsSinceEpoch(
+                            DateTime.now().microsecondsSinceEpoch),
                       });
                     },
                     child: Text(
@@ -111,7 +117,10 @@ class MessageStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection('messages').snapshots(),
+      stream: _firestore
+          .collection('messages')
+          .orderBy("time", descending: false)
+          .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
